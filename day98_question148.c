@@ -1,0 +1,58 @@
+//Take two structs as input and check if they are identical.
+
+/*
+Sample Test Cases:
+Input 1:
+Student1: Asha 101 90
+Student2: Asha 101 90
+Output 1:
+Same
+
+*/
+#include <stdio.h>
+#include <string.h>
+
+struct Student {
+    char name[50];
+    int roll_no;
+    int marks;
+};
+
+//function to compare two students
+int areSame(struct Student s1, struct Student s2) {
+    if (strcmp(s1.name, s2.name) == 0 && s1.roll_no == s2.roll_no && s1.marks == s2.marks) {
+        return 1; // Same
+    }
+    return 0; // Not same
+}
+
+int main() {
+    struct Student s1, s2;
+
+    //input first student
+    printf("Enter details of Student 1:\n");
+    printf("Name: ");
+    scanf("%s", s1.name);
+    printf("Roll No: ");
+    scanf("%d", &s1.roll_no);
+    printf("Marks: ");
+    scanf("%d", &s1.marks);
+
+    //input second student
+    printf("\nEnter details of Student 2:\n");
+    printf("Name: ");
+    scanf("%s", s2.name);
+    printf("Roll No: ");
+    scanf("%d", &s2.roll_no);
+    printf("Marks: ");
+    scanf("%d", &s2.marks);
+
+    //check if identical
+    if (areSame(s1, s2)) {
+        printf("\nSame\n");
+    } else {
+        printf("\nNot Same\n");
+    }
+
+    return 0;
+}
